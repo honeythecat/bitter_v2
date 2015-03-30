@@ -1,0 +1,7 @@
+<%= render 'layouts/errors', :object => @twit %>
+
+<%= form_for @twit do |f| %>
+  <%= f.label :twit %>
+  <%= f.text_field :twit %>
+  <%= f.submit %>
+<% end %>

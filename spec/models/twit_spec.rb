@@ -1,4 +1,4 @@
-require 'rails-helper'
+require 'rails_helper'
 
 describe Twit do
   it { should validate_presence_of :twit }
