@@ -4,7 +4,7 @@ describe "the add a twit process" do
   it "creates a new twit" do
     user = FactoryGirl.create(:user)
     visit "/"
-    click_on 'Login'
+    click_on 'LOGIN'
     fill_in 'Email', :with => "dog@world.com"
     fill_in 'Password', :with => "12345678"
     click_on 'Log in'
@@ -16,8 +16,7 @@ describe "the add a twit process" do
 
   it "gives error when no title is entered" do
     user = FactoryGirl.create(:user)
-    visit "/"
-    click_on 'Login'
+    visit new_user_session_path
     fill_in 'Email', :with => "dog@world.com"
     fill_in 'Password', :with => "12345678"
     click_on 'Log in'
@@ -26,4 +25,6 @@ describe "the add a twit process" do
     click_on 'Create Twit'
     expect(page).to have_content 'ERRORS!!'
   end
+
+
 end

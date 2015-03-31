@@ -7,7 +7,7 @@ class TwitsController < ApplicationController
   end
 
   def show
-    @twits = Twit.find(params[:id])
+    @twit = Twit.find(params[:id])
   end
 
   def new
@@ -22,6 +22,27 @@ class TwitsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @twit = Twit.find(params[:id])
+  end
+
+  def update
+    @twit = Twit.find(params[:id])
+    if @twit.update(twit_params)
+      flash[:notice] = "YOUR TWIT HAS BEEN UPDATED!!"
+      redirect_to twit_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @twit = Twit.find(params[:id])
+    @twit.destroy
+    flash[:alert] = "TWIT HAS BEEN DESTROYED!"
+    redirect_to twits_path
   end
 
   private

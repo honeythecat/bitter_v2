@@ -1,0 +1,7 @@
+<h1><%= @twit.twit %></h1>
+<h6><%= @twit.created_at.to_s(:long) %></h6>
+
+<p><%= link_to "EDIT TWIT!!", edit_twit_path, id: "edit_twit", remote: true %></p>
+<p><%= link_to "DELETE TWIT!!", twit_path(@twit),
+                                :data => { :confirm => "REALLY?!",
+                                  :method => 'delete' } %></p>
